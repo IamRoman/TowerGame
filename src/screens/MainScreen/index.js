@@ -19,6 +19,11 @@ class MainScreenContainer extends Component {
     this.props.navigation.goBack();
   };
 
+  onPressStartGame = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Game', { data: 123 });
+  }
+
   render() {
     const {
       navigation,
@@ -26,7 +31,7 @@ class MainScreenContainer extends Component {
     return (
       <MainScreen
         navigation={navigation}
-        goBackPress={this.goBackPress}
+        onPressStartGame={this.onPressStartGame}
       />);
   }
 }

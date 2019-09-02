@@ -1,4 +1,4 @@
 // leave off @2x/@3x
 export default {
-  // logo: require('../images/logo.png'),
+  backArrow: require('../images/back_arrow.png'),
 };

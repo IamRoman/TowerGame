@@ -1,7 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { Metrics, Colors } from '../themes';
 
 export default StyleSheet.create({
   rootStackStyle: {
-    flex: 1,
+    height: Metrics.screenHeight,
+    width: Metrics.screenWidth,
+    backgroundColor: Colors.transparent,
   },
 });

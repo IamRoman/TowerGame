@@ -1,0 +1,3 @@
+rootProject.name = 'TowerGame'
+
+include ':app'

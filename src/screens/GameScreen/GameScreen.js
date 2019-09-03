@@ -13,12 +13,30 @@ export default class GameScreen extends Component {
       <View style={styles.rowStyle}>
         {
           fieldRow.map((item) => {
-            if (item) {
+            if (item === 1) {
               return (
                 <View
                   style={styles.rowItemStyle}
                 >
                   <Text>1</Text>
+                </View>
+              );
+            }
+            if (item === 2) {
+              return (
+                <View
+                  style={styles.rowItemStyle}
+                >
+                  <Text>2</Text>
+                </View>
+              );
+            }
+            if (item === 3) {
+              return (
+                <View
+                  style={styles.rowItemStyle}
+                >
+                  <Text>3</Text>
                 </View>
               );
             }

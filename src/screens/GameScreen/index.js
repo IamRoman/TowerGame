@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import GameScreen from './GameScreen';
 
+const tick = 500;
+
 class GameScreenContainer extends Component {
 
   constructor(props) {
@@ -18,13 +20,30 @@ class GameScreenContainer extends Component {
   }
 
   componentDidMount() {
-    console.warn('1', this.state.playingField[0]);
+    this.startGameProcess();
+  }
+
+  startGameProcess = () => {
+    const { playingField } = this.state;
+    let step = playingField.length - 1;
+    const copyPlayingField = [...playingField];
+    const game = setInterval(() => {
+      if (step === 0) {
+        clearInterval(game);
+      }
+      copyPlayingField[step][0] = 1;
+      if (step < playingField.length - 1) {
+        copyPlayingField[step + 1][0] = null;
+      }
+      this.setState({ playingField: copyPlayingField });
+      step--;
+    }, tick);
   }
 
   initialPlayingField = () => {
     const { playingField } = this.state;
     for (let i = 0; i < playingField.length; i++) {
-      playingField[i] = new Array(3);
+      playingField[i] = [null, null, null];
     }
   }
 
@@ -36,10 +55,12 @@ class GameScreenContainer extends Component {
     const {
       navigation,
     } = this.props;
+    const { playingField } = this.state;
     return (
       <GameScreen
         navigation={navigation}
         goBackPress={this.goBackPress}
+        playingField={playingField}
       />);
   }
 }

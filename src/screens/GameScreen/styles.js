@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { Metrics, Colors } from '../../themes';
 
 const styles = StyleSheet.create({
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btnStyle: {
+    marginTop: Platform.OS === 'ios' ? 0 : 20,
     height: 44,
     width: 50,
     justifyContent: 'center',

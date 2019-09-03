@@ -9,10 +9,23 @@ class GameScreenContainer extends Component {
     super(props);
 
     this.state = {
+      playingField: new Array(10),
     };
   }
 
+  componentWillMount() {
+    this.initialPlayingField();
+  }
+
   componentDidMount() {
+    console.warn('1', this.state.playingField[0]);
+  }
+
+  initialPlayingField = () => {
+    const { playingField } = this.state;
+    for (let i = 0; i < playingField.length; i++) {
+      playingField[i] = new Array(3);
+    }
   }
 
   goBackPress = () => {

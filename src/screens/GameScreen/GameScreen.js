@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, ImageBackground, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { Images, Metrics } from '../../themes';
 import ButtonWithImage from '../../components/ButtonWithImage';
@@ -18,7 +18,11 @@ export default class GameScreen extends Component {
                 <View
                   style={styles.rowItemStyle}
                 >
-                  <Text>1</Text>
+                  <Image
+                    style={styles.imageStyle}
+                    resizeMode="contain"
+                    source={Images.iconSoldier}
+                  />
                 </View>
               );
             }
@@ -27,7 +31,11 @@ export default class GameScreen extends Component {
                 <View
                   style={styles.rowItemStyle}
                 >
-                  <Text>2</Text>
+                  <Image
+                    style={styles.imageStyle}
+                    resizeMode="contain"
+                    source={Images.iconExplosion}
+                  />
                 </View>
               );
             }
@@ -36,16 +44,15 @@ export default class GameScreen extends Component {
                 <View
                   style={styles.rowItemStyle}
                 >
-                  <Text>3</Text>
+                  <Image
+                    style={styles.imageStyle}
+                    resizeMode="contain"
+                    source={Images.iconRip}
+                  />
                 </View>
               );
             }
-            return (
-              <View
-                style={styles.rowItemStyle}
-              >
-                <Text>0</Text>
-              </View>);
+            return (<View style={styles.rowItemStyle} />);
           })
         }
       </View>
@@ -55,7 +62,10 @@ export default class GameScreen extends Component {
   render() {
     const { goBackPress, playingField } = this.props;
     return (
-      <View style={styles.container}>
+      <ImageBackground
+        style={styles.container}
+        source={Images.bgGameScreen}
+      >
         <ButtonWithImage
           containerStyle={styles.btnStyle}
           imageStyle={styles.backIcon}
@@ -63,13 +73,18 @@ export default class GameScreen extends Component {
           onPress={goBackPress}
         />
         <View style={styles.contentContainer}>
+          <Image
+            style={styles.towerImageStyle}
+            resizeMode="contain"
+            source={Images.towerImage}
+          />
           <View style={styles.roadStyle}>
             {
               playingField.map(item => this.renderRow(item))
             }
           </View>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }

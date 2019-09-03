@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   btnStyle: {
@@ -24,16 +23,24 @@ const styles = StyleSheet.create({
   },
   rowItemStyle: {
     flex: 1,
-    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   rowStyle: {
     flex: 1,
     flexDirection: 'row',
   },
   roadStyle: {
-    marginTop: 70,
     height: Metrics.screenWidth,
     width: Metrics.screenWidth - 100,
+  },
+  imageStyle: {
+    height: 40,
+    width: 40,
+  },
+  towerImageStyle: {
+    height: 120,
+    width: 70,
   },
 });
 

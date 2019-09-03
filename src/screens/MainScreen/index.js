@@ -27,7 +27,7 @@ class MainScreenContainer extends Component {
 
   onPressStartGame = () => {
     const { navigation } = this.props;
-    navigation.navigate('Game', { data: this.selectedBotIndex });
+    navigation.navigate('Game', { selectedBotIndex: this.selectedBotIndex });
   }
 
   setSelectedBot = (index) => {

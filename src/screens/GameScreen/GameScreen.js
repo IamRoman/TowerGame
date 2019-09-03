@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { Images, Metrics } from '../../themes';
+import { Images } from '../../themes';
 import ButtonWithImage from '../../components/ButtonWithImage';
 
 import styles from './styles';
@@ -13,46 +13,50 @@ export default class GameScreen extends Component {
       <View style={styles.rowStyle}>
         {
           fieldRow.map((item) => {
-            if (item === 1) {
-              return (
-                <View
-                  style={styles.rowItemStyle}
-                >
-                  <Image
-                    style={styles.imageStyle}
-                    resizeMode="contain"
-                    source={Images.iconSoldier}
-                  />
-                </View>
-              );
+            switch (item) {
+              case 1: {
+                return (
+                  <View
+                    style={styles.rowItemStyle}
+                  >
+                    <Image
+                      style={styles.imageStyle}
+                      resizeMode="contain"
+                      source={Images.iconSoldier}
+                    />
+                  </View>
+                );
+              }
+              case 2: {
+                return (
+                  <View
+                    style={styles.rowItemStyle}
+                  >
+                    <Image
+                      style={styles.imageStyle}
+                      resizeMode="contain"
+                      source={Images.iconExplosion}
+                    />
+                  </View>
+                );
+              }
+              case 3: {
+                return (
+                  <View
+                    style={styles.rowItemStyle}
+                  >
+                    <Image
+                      style={styles.imageStyle}
+                      resizeMode="contain"
+                      source={Images.iconRip}
+                    />
+                  </View>
+                );
+              }
+              default: {
+                return (<View style={styles.rowItemStyle} />);
+              }
             }
-            if (item === 2) {
-              return (
-                <View
-                  style={styles.rowItemStyle}
-                >
-                  <Image
-                    style={styles.imageStyle}
-                    resizeMode="contain"
-                    source={Images.iconExplosion}
-                  />
-                </View>
-              );
-            }
-            if (item === 3) {
-              return (
-                <View
-                  style={styles.rowItemStyle}
-                >
-                  <Image
-                    style={styles.imageStyle}
-                    resizeMode="contain"
-                    source={Images.iconRip}
-                  />
-                </View>
-              );
-            }
-            return (<View style={styles.rowItemStyle} />);
           })
         }
       </View>

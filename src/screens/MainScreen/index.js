@@ -9,7 +9,13 @@ class MainScreenContainer extends Component {
     super(props);
 
     this.state = {
+      botsTypes: [
+        { label: 'BotA distance 100 m/speed 10', value: 0 },
+        { label: 'BotB distance 50 m/speed 10', value: 1 },
+        { label: 'BotC distance 100 m/speed 20', value: 2 },
+      ],
     };
+    this.selectedBotIndex = 0;
   }
 
   componentDidMount() {
@@ -21,17 +27,24 @@ class MainScreenContainer extends Component {
 
   onPressStartGame = () => {
     const { navigation } = this.props;
-    navigation.navigate('Game', { data: 123 });
+    navigation.navigate('Game', { data: this.selectedBotIndex });
+  }
+
+  setSelectedBot = (index) => {
+    this.selectedBotIndex = index;
   }
 
   render() {
     const {
       navigation,
     } = this.props;
+    const { botsTypes } = this.state;
     return (
       <MainScreen
         navigation={navigation}
         onPressStartGame={this.onPressStartGame}
+        botsTypes={botsTypes}
+        setSelectedBot={this.setSelectedBot}
       />);
   }
 }

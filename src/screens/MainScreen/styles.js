@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.black,
   },
+  radioFormStyle: {
+    marginTop: 30,
+  },
 });
 
 export default styles;
